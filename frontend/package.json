@@ -4,7 +4,7 @@
   "description": "An example React, GraphQL, Next and Apollo ecommerce app",
   "main": "index.js",
   "scripts": {
-    "dev": "next -p 7777",
+    "dev": "next -p 7773",
     "build": "next build",
     "start": "next start",
     "test": "NODE_ENV=test jest --watch",
