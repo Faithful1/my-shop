@@ -1,6 +1,20 @@
-import Nav from './Nav'
 import Link from 'next/link'
 import styled from 'styled-components';
+import Router from 'next/router';
+
+import Nav from './Nav';
+import NProgress from 'nprogress';
+
+Router.onRouteChangeStart = () => {
+    NProgress.start();
+};
+Router.onRouteChangeComplete = () => {
+    NProgress.done();;
+};
+Router.onRouteChangeError = () => {
+    NProgress.done();;
+};
+
 
 const Logo = styled.h1`
     font-size: 4rem;
@@ -46,7 +60,7 @@ const Header = () => (
     <div className="bar">
         <Logo>
             <Link href="/">
-                <a>My Shop</a>
+                <a>My Shop!</a>
             </Link>
         </Logo>
         <Nav />
