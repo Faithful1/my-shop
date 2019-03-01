@@ -1,7 +1,11 @@
+type Item {
+    name: String!
+}
+
 type Mutation {
-    hi: String
+    createItems(name: String!): Item
 }
 
 type Query {
-    hi: String
+    items: [Item]!
 }
