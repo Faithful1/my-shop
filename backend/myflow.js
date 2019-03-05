@@ -5,3 +5,13 @@
     3. edit schema.graphql for yoga
     4. write a resolver in mutation
 */ 
+
+
+query SINGLE_ITEM{
+    item(where:{ id:"cjsrcr69z2pmf0b872d3xez0d"})
+    {
+      id
+      title
+      description
+    }
+  }
