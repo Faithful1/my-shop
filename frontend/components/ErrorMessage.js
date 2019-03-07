@@ -17,6 +17,9 @@ const ErrorStyles = styled.div`
     margin-right: 1rem;
   }
 `
+/**
+ * DisplayError Component
+ */
 
 const DisplayError = ({ error }) => {
   if (!error || !error.message) return null

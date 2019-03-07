@@ -26,6 +26,10 @@ const CREATE_ITEM_MUTATION = gql`
     }
 `;
 
+/**
+ * CreateItem Component
+ */
+
 class CreateItem extends Component {
 state = {
     title: 'cool',
