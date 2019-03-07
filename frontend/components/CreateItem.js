@@ -17,9 +17,9 @@ const CREATE_ITEM_MUTATION = gql`
     createItem(
         title: $title
         description:$description
-        image: $image 
-        largeImage: $largeImage 
-        price: $price 
+        image: $image
+        largeImage: $largeImage
+        price: $price
         ) {
             id
         }
@@ -67,8 +67,8 @@ render() {
     return (
             <Mutation mutation={CREATE_ITEM_MUTATION}
                 variables={this.state}>
-                {(createItem, {loading, error}) => (            
-            <Form 
+                {(createItem, {loading, error}) => (
+            <Form
                 onSubmit={async e => {
                     // stop the form from submitting
                     e.preventDefault();
@@ -77,7 +77,7 @@ render() {
                     // change them to the single item page
                     Router.push({
                         pathname: '/item',
-                        query: { id: res.data.createItem.id }, 
+                        query: { id: res.data.createItem.id },
                     })
                     console.log(res);
                 }}
@@ -86,47 +86,47 @@ render() {
                 <fieldset disabled={loading} aria-busy={loading}>
                 <label htmlFor="file">
                         Image
-                        <input 
-                            type="file" 
-                            id="file" 
+                        <input
+                            type="file"
+                            id="file"
                             name="file"
-                            placeholder="Upload an image" 
+                            placeholder="Upload an image"
                             // required value={this.state.image}
                             onChange={this.uploadFile}
                         />
-                        {this.state.image && 
-                            <img src={this.state.image} 
+                        {this.state.image &&
+                            <img src={this.state.image}
                             alt="Upload preview"
                             width="200"/>}
                     </label>
                     <label htmlFor="title">
                         Title
-                        <input 
-                            type="text" 
-                            id="title" 
+                        <input
+                            type="text"
+                            id="title"
                             name="title"
-                            placeholder="Title" 
+                            placeholder="Title"
                             required value={this.state.title}
                             onChange={this.handleChange}
                         />
                     </label>
                     <label htmlFor="price">
                         Price
-                        <input 
-                            type="number" 
-                            id="price" 
+                        <input
+                            type="number"
+                            id="price"
                             name="price"
-                            placeholder ="Price" 
+                            placeholder ="Price"
                             required value={this.state.price}
                             onChange={this.handleChange}
                         />
                     </label>
                     <label htmlFor="description">
                         Description
-                        <textarea 
-                            id="description" 
+                        <textarea
+                            id="description"
                             name="description"
-                            placeholder ="Enter a Description" 
+                            placeholder ="Enter a Description"
                             required value={this.state.description}
                             onChange={this.handleChange}
                         />

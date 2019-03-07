@@ -12,16 +12,16 @@ const SINGLE_ITEM_QUERY = gql`
             id
             title
             description
-            price 
+            price
         }
     }
 `;
 
 const UPDATE_ITEM_MUTATION = gql`
     mutation UPDATE_ITEM_MUTATION(
-        $id: ID!
-        $title: String
-        $description: String
+        $id: ID!,
+        $title: String,
+        $description: String,
         # $image: String
         # $largeImage: String
         $price: Int
@@ -30,9 +30,9 @@ const UPDATE_ITEM_MUTATION = gql`
         id: $id
         title: $title
         description: $description
-        # image: $image 
-        # largeImage: $largeImage 
-        price: $price 
+        # image: $image
+        # largeImage: $largeImage
+        price: $price
         ) {
             id
             title
@@ -44,7 +44,7 @@ const UPDATE_ITEM_MUTATION = gql`
 
 class UpdateItem extends Component {
 state = {
-    
+
 };
 
 handleChange = e => {
@@ -70,8 +70,8 @@ updateItem = async (e, updateItemMutation) => {
 // used implicit return to return data for mutation
 render() {
     return (
-            <Query 
-                query={SINGLE_ITEM_QUERY} 
+            <Query
+                query={SINGLE_ITEM_QUERY}
                 variables={{
                 id: this.props.id
                 }}
@@ -82,18 +82,18 @@ render() {
                 return (
             <Mutation mutation={UPDATE_ITEM_MUTATION}
                 variables={this.state}>
-                {(updateItem, { loading, error }) => (            
+                {(updateItem, { loading, error }) => (
             <Form onSubmit={e => this.updateItem(e, updateItem)}>
 
                 <Error error={error}/>
                 <fieldset disabled={loading} aria-busy={loading}>
                     <label htmlFor="title">
                         Title
-                        <input 
-                            type="text" 
-                            id="title" 
+                        <input
+                            type="text"
+                            id="title"
                             name="title"
-                            placeholder="Title" 
+                            placeholder="Title"
                             required
                             defaultValue={data.item.title}
                             onChange={this.handleChange}
@@ -101,11 +101,11 @@ render() {
                     </label>
                     <label htmlFor="price">
                         Price
-                        <input 
-                            type="number" 
-                            id="price" 
+                        <input
+                            type="number"
+                            id="price"
                             name="price"
-                            placeholder ="Price" 
+                            placeholder ="Price"
                             required
                             defaultValue={data.item.price}
                             onChange={this.handleChange}
@@ -113,10 +113,10 @@ render() {
                     </label>
                     <label htmlFor="description">
                         Description
-                        <textarea 
-                            id="description" 
+                        <textarea
+                            id="description"
                             name="description"
-                            placeholder ="Enter a Description" 
+                            placeholder ="Enter a Description"
                             required
                             defaultValue={data.item.description}
                             onChange={this.handleChange}

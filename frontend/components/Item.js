@@ -4,7 +4,8 @@ import PropTypes from 'prop-types';
 import Title from './styles/Title';
 import ItemStyles from './styles/ItemStyles';
 import PriceTag from './styles/PriceTag';
-import formatMoney from '../lib/formatMoney'
+import formatMoney from '../lib/formatMoney';
+import DeleteItem from './DeleteItem';
 
 export default class componentName extends Component {
   static propTypes = {
@@ -16,13 +17,13 @@ export default class componentName extends Component {
     return (
         <ItemStyles>
           {item.image && <img src={item.image} alt={item.title}/>}
-            <Title> 
+            <Title>
               <Link href={{
                 pathname: '/item',
                 query: {id: item.id}
               }}>
                 <a>
-                  {item.title} 
+                  {item.title}
                 </a>
               </Link>
             </Title>
@@ -34,10 +35,10 @@ export default class componentName extends Component {
                 pathname: 'update',
                 query: {id: item.id}
               }}>
-                <a>Edit :pencil</a>
+                <a>Edit</a>
               </Link>
               <button>Add To cart</button>
-              <button>Delete</button>
+              <DeleteItem id={item.id}>Delete this item</DeleteItem>
             </div>
         </ItemStyles>
     );

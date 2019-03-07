@@ -1,20 +1,19 @@
 import Link from 'next/link'
-import styled from 'styled-components';
-import Router from 'next/router';
+import styled from 'styled-components'
+import Router from 'next/router'
 
-import Nav from './Nav';
-import NProgress from 'nprogress';
+import Nav from './Nav'
+import NProgress from 'nprogress'
 
 Router.onRouteChangeStart = () => {
-    NProgress.start();
-};
+  NProgress.start()
+}
 Router.onRouteChangeComplete = () => {
-    NProgress.done();;
-};
+  NProgress.done()
+}
 Router.onRouteChangeError = () => {
-    NProgress.done();;
-};
-
+  NProgress.done()
+}
 
 const Logo = styled.h1`
     font-size: 4rem;
@@ -33,11 +32,11 @@ const Logo = styled.h1`
         margin: 0;
         text-align: center;
     }
-`;
+`
 
 const StyleHeader = styled.header`
     .bar {
-        border-bottom: 10px solid ${ props => props.theme.black};
+        border-bottom: 10px solid ${props => props.theme.black};
         display: grid;
         grid-template-columns: auto 1fr;
         justify-content: space-between;
@@ -53,25 +52,25 @@ const StyleHeader = styled.header`
         grid-template-columns: 1fr auto;
         border-bottom: 1px solid ${props => props.theme.lightgrey};
     }
-`;
+`
 
 const Header = () => (
-<StyleHeader>
-    <div className="bar">
-        <Logo>
-            <Link href="/">
-                <a>My Shop!</a>
-            </Link>
-        </Logo>
-        <Nav />
+  <StyleHeader>
+    <div className='bar'>
+      <Logo>
+        <Link href='/'>
+          <a>My Shop!</a>
+        </Link>
+      </Logo>
+      <Nav />
     </div>
-    <div className="sub-bar">
-        <p>Search </p> 
+    <div className='sub-bar'>
+      <p>Search </p>
     </div>
     <div>
-        Cart
+      Cart
     </div>
-</StyleHeader>
+  </StyleHeader>
 )
 
 export default Header
