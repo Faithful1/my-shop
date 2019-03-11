@@ -17,18 +17,15 @@ const SIGNUP_MUTATION = gql`
 class Signup extends Component {
   state = {
     name: '',
-    email: '',
     password: '',
+    email: '',
   };
   saveToState = e => {
     this.setState({ [e.target.name]: e.target.value });
   };
   render() {
     return (
-      <Mutation
-        mutation={SIGNUP_MUTATION}
-        variables={this.state}
-      >
+      <Mutation mutation={SIGNUP_MUTATION} variables={this.state}>
         {(signup, { error, loading }) => (
           <Form
             method="post"
@@ -82,4 +79,3 @@ class Signup extends Component {
 }
 
 export default Signup;
-export { SIGNUP_MUTATION };
